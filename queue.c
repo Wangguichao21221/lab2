@@ -50,7 +50,7 @@ void push(Queue *queue, double element)
 
 double back(Queue *queue)
 {
-  if (!queue || !queue->data)
+  if (!queue || !queue->data || queue->size == 0)
   {
     printf("Queue is not valid for back()\n");
     exit(1);
