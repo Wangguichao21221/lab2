@@ -24,7 +24,11 @@ Queue *queue_create(void)
 
 void push(Queue *queue, double element)
 {
-
+  if (!queue || !queue->data)
+  {
+    printf("Queue is not initialized correctly!\n");
+    exit(1);
+  }
   if (queue->size == queue->capacity)
   {
     int capacity = queue->capacity * 2;
@@ -46,12 +50,21 @@ void push(Queue *queue, double element)
 
 double back(Queue *queue)
 {
+  if (!queue || !queue->data)
+  {
+    printf("Queue is not valid for back()\n");
+    exit(1);
+  }
   return queue->data[queue->size - 1];
 }
 
 void queue_free(Queue *queue)
 {
-
+  if (!queue)
+  {
+    printf("Queue is not valid for queue_free()");
+    exit(1);
+  }
   free(queue->data);
   free(queue);
 }

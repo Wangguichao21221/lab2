@@ -14,5 +14,4 @@ Queue *queue_create(void);
 void push(Queue *queue, double element);
 double back(Queue *queue);
 void queue_free(Queue *queue);
-
 #endif // LAB_2_QUEUE_H
